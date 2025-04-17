@@ -13,9 +13,11 @@
       padding: 20px;
     }
 
+   
+
     h1 {
       color: #604ccf;
-    }
+  }
 
     p {
       font-size: 18px;
@@ -23,18 +25,17 @@
     }
 
     #controle{
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 0px;
+      width: 10px;
+      height: 10px;
+     
     }
 
     .quebra-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px; /* espaço entre imagem e tabuleiro */
-      flex-wrap: wrap; /* empilha em telas pequenas */
+      gap: 40px;
+      flex-wrap: wrap;
       margin: 20px 0;
     }
 
@@ -96,10 +97,11 @@
   </style>
 </head>
 <body>
+  <header>
   <h1>Quebra-Cabeça</h1>
   <img id="controle" src="/controle.png" alt="Botões de controle" style="width: 300px; height: 300px; border-radius: 50%; margin-bottom: 20px;">
   <p>Mova as peças para resolver o quebra-cabeça!</p>
-
+</header>
   <div class="quebra-container">
     <div class="container">
       <div class="peca" id="1">1</div>
