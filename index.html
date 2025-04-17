@@ -22,13 +22,29 @@
       color: #43368a;
     }
 
+    .quebra-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px; /* espaço entre imagem e tabuleiro */
+      flex-wrap: wrap; /* empilha em telas pequenas */
+      margin: 20px 0;
+    }
+
     #img {
-      width: 200px;
-      height: 200px;
-      background-image: url('puzzle.jpg'); 
-      background-size: cover;
+      width: 300px;
+      height: 300px;
       border: 2px solid #8270ec;
-      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .container {
@@ -36,7 +52,6 @@
       grid-template-columns: repeat(3, 100px);
       grid-template-rows: repeat(3, 100px);
       gap: 2px;
-      margin: 20px auto;
       width: fit-content;
     }
 
@@ -52,11 +67,11 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-
-
+    .buttons-container{
+      width: 100%;
+    }
     button {
-      margin: 10px;
+      margin: 0 21px;
       padding: 10px 20px;
       font-size: 16px;
       font-weight: bold;
@@ -64,6 +79,7 @@
       border: 2px solid #8270ec;
       color: #43368a;
       background-color: white;
+      width:300px;
     }
 
     button:hover {
@@ -76,25 +92,27 @@
   <h1>Quebra-Cabeça</h1>
   <p>Mova as peças para resolver o quebra-cabeça!</p>
 
-<div id="img">
-  <img src="https://picsum.photos/536/354" alt="Imagem aleatória" width="200" height="200">
-</div>
+  <div class="quebra-container">
+    <div class="container">
+      <div class="peca" id="1">1</div>
+      <div class="peca" id="2">2</div>
+      <div class="peca" id="3">3</div>
+      <div class="peca" id="4">4</div>
+      <div class="peca" id="5">5</div>
+      <div class="peca" id="6">6</div>
+      <div class="peca" id="7">7</div>
+      <div class="peca" id="8">8</div>
+      <div class="peca" id="9"></div> 
+    </div>
 
-  <div class="container">
-    <div class="peca" id="1">1</div>
-    <div class="peca" id="2">2</div>
-    <div class="peca" id="3">3</div>
-    <div class="peca" id="4">4</div>
-    <div class="peca" id="5">5</div>
-    <div class="peca" id="6">6</div>
-    <div class="peca" id="7">7</div>
-    <div class="peca" id="8">8</div>
-    <div class="peca" id="9"></div> 
+    <div id="img">
+      <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
+    </div>
   </div>
-
+<div class="buttons-container">
   <button id="reset">Reset</button>
   <button id="mudaImagem">Mudar Imagem</button>
+</div>
 
-  <script src="script.js"></script>
 </body>
 </html>
