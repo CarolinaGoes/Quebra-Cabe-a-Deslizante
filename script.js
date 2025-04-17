@@ -18,38 +18,46 @@ botaoImagem.addEventListener('click', () => {
   imagem.src = novaUrl;
 });
 
-function embaralhar() {
-  const posicoesAleatorias = pecas.map(() => Math.floor(Math.random() * 9));
+let arrayPosicoesAleatorias; // Variável global para armazenar as posições
 
-  peca1.style.order = posicoesAleatorias[0];
-  peca2.style.order = posicoesAleatorias[1];
-  peca3.style.order = posicoesAleatorias[2];
-  peca4.style.order = posicoesAleatorias[3];
-  peca5.style.order = posicoesAleatorias[4];
-  peca6.style.order = posicoesAleatorias[5];
-  peca7.style.order = posicoesAleatorias[6];
-  peca8.style.order = posicoesAleatorias[7];
-  peca9.style.order = posicoesAleatorias[8];
+function posicoesAleatorias() {
+  arrayPosicoesAleatorias = pecas.map(() => Math.floor(Math.random() * 9));
 
-  if (posicoesAleatorias[0] === 0) {
-    peca1.style.backgroundPosition = '0px 0px';
-  } else if (posicoesAleatorias[0] === 1) {
-    peca1.style.backgroundPosition = '-100px 0px';
-  } else if (posicoesAleatorias[0] === 2) {
-    peca1.style.backgroundPosition = '-200px 0px';
-  } else if (posicoesAleatorias[0] === 3) {
-    peca1.style.backgroundPosition = '0px -100px';
-  } else if (posicoesAleatorias[0] === 4) {
-    peca1.style.backgroundPosition = '-100px -100px';
-  } else if (posicoesAleatorias[0] === 5) {
-    peca1.style.backgroundPosition = '-200px -100px';
-  } else if (posicoesAleatorias[0] === 6) {
-    peca1.style.backgroundPosition = '0px -200px';
-  } else if (posicoesAleatorias[0] === 7) {
-    peca1.style.backgroundPosition = '-100px -200px';
-  } else if (posicoesAleatorias[0] === 8) {
-    peca1.style.backgroundColor = 'white';
-  }
+  peca1.style.order = arrayPosicoesAleatorias[0];
+  peca2.style.order = arrayPosicoesAleatorias[1];
+  peca3.style.order = arrayPosicoesAleatorias[2];
+  peca4.style.order = arrayPosicoesAleatorias[3];
+  peca5.style.order = arrayPosicoesAleatorias[4];
+  peca6.style.order = arrayPosicoesAleatorias[5];
+  peca7.style.order = arrayPosicoesAleatorias[6];
+  peca8.style.order = arrayPosicoesAleatorias[7];
+  peca9.style.order = arrayPosicoesAleatorias[8];
 }
+
+posicoesAleatorias();
+
+function embaralhar() {
+  for (let i = 0; i < pecas.length; i++) {
+    if (arrayPosicoesAleatorias[i] === 0) {
+      pecas[i].style.backgroundPosition = '0px 0px';
+    } else if (arrayPosicoesAleatorias[i] === 1) {
+      pecas[i].style.backgroundPosition = '-100px 0px';
+    } else if (arrayPosicoesAleatorias[i] === 2) {
+      pecas[i].style.backgroundPosition = '-200px 0px';
+    } else if (arrayPosicoesAleatorias[i] === 3) {
+      pecas[i].style.backgroundPosition = '0px -100px';
+    } else if (arrayPosicoesAleatorias[i] === 4) {
+      pecas[i].style.backgroundPosition = '-100px -100px';
+    } else if (arrayPosicoesAleatorias[i] === 5) {
+      pecas[i].style.backgroundPosition = '-200px -100px';
+    } else if (arrayPosicoesAleatorias[i] === 6) {
+      pecas[i].style.backgroundPosition = '0px -200px';
+    } else if (arrayPosicoesAleatorias[i] === 7) {
+      pecas[i].style.backgroundPosition = '-100px -200px';
+    } else if (arrayPosicoesAleatorias[i] === 8) {
+      pecas[i].style.backgroundColor = 'white';
+    }
+  }
+};
 
 embaralhar();
