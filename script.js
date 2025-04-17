@@ -8,8 +8,19 @@ let peca6 = document.querySelector("#peca6");
 let peca7 = document.querySelector("#peca7");
 let peca8 = document.querySelector("#peca8");
 let peca9 = document.querySelector("#peca9");
-let pecas = [peca1, peca2, peca3, peca4, peca5, peca6, peca7, peca8, peca9];
+const pecasElementos = {
+  peca1: peca1,
+  peca2: peca2,
+  peca3: peca3,
+  peca4: peca4,
+  peca5: peca5,
+  peca6: peca6,
+  peca7: peca7,
+  peca8: peca8,
+  peca9: peca9
+};
 
+// BOTÃO MUDAR IMAGEM
 const botaoImagem = document.getElementById('mudaImagem');
 const imagem = document.querySelector('#img img');
 
@@ -17,47 +28,38 @@ botaoImagem.addEventListener('click', () => {
   const novaUrl = `https://picsum.photos/200/200?random=${Math.floor(Math.random() * 1000)}`;
   imagem.src = novaUrl;
 });
+// FIM BOTÃO MUDAR IMAGEM
 
-let arrayPosicoesAleatorias; // Variável global para armazenar as posições
-
-function posicoesAleatorias() {
-  arrayPosicoesAleatorias = pecas.map(() => Math.floor(Math.random() * 9));
-
-  peca1.style.order = arrayPosicoesAleatorias[0];
-  peca2.style.order = arrayPosicoesAleatorias[1];
-  peca3.style.order = arrayPosicoesAleatorias[2];
-  peca4.style.order = arrayPosicoesAleatorias[3];
-  peca5.style.order = arrayPosicoesAleatorias[4];
-  peca6.style.order = arrayPosicoesAleatorias[5];
-  peca7.style.order = arrayPosicoesAleatorias[6];
-  peca8.style.order = arrayPosicoesAleatorias[7];
-  peca9.style.order = arrayPosicoesAleatorias[8];
+const pecasComPosicoes = {};
+for (const pecaId in pecasElementos) {
+  pecasComPosicoes[pecaId] = Math.floor(Math.random() * 9);
 }
 
-posicoesAleatorias();
-
 function embaralhar() {
-  for (let i = 0; i < pecas.length; i++) {
-    if (arrayPosicoesAleatorias[i] === 0) {
-      pecas[i].style.backgroundPosition = '0px 0px';
-    } else if (arrayPosicoesAleatorias[i] === 1) {
-      pecas[i].style.backgroundPosition = '-100px 0px';
-    } else if (arrayPosicoesAleatorias[i] === 2) {
-      pecas[i].style.backgroundPosition = '-200px 0px';
-    } else if (arrayPosicoesAleatorias[i] === 3) {
-      pecas[i].style.backgroundPosition = '0px -100px';
-    } else if (arrayPosicoesAleatorias[i] === 4) {
-      pecas[i].style.backgroundPosition = '-100px -100px';
-    } else if (arrayPosicoesAleatorias[i] === 5) {
-      pecas[i].style.backgroundPosition = '-200px -100px';
-    } else if (arrayPosicoesAleatorias[i] === 6) {
-      pecas[i].style.backgroundPosition = '0px -200px';
-    } else if (arrayPosicoesAleatorias[i] === 7) {
-      pecas[i].style.backgroundPosition = '-100px -200px';
-    } else if (arrayPosicoesAleatorias[i] === 8) {
-      pecas[i].style.backgroundColor = 'white';
+    for (const pecaId in pecasElementos) {
+      const peca = pecasElementos[pecaId];
+      const posicao = pecasComPosicoes[pecaId];
+  
+      if (pecaId === "peca1") { 
+        peca.style.backgroundPosition = '0px 0px';
+      } else if (posicao === 1) {
+        peca.style.backgroundPosition = '-100px 0px';
+      } else if (posicao === 2) {
+        peca.style.backgroundPosition = '-200px 0px';
+      } else if (posicao === 3) {
+        peca.style.backgroundPosition = '0px -100px';
+      } else if (posicao === 4) {
+        peca.style.backgroundPosition = '-100px -100px';
+      } else if (posicao === 5) {
+        peca.style.backgroundPosition = '-200px -100px';
+      } else if (posicao === 6) {
+        peca.style.backgroundPosition = '0px -200px';
+      } else if (posicao === 7) {
+        peca.style.backgroundPosition = '-100px -200px';
+      } else if (posicao === 8) {
+        peca.style.backgroundColor = 'white';
+      }
     }
-  }
-};
+  };
 
 embaralhar();
