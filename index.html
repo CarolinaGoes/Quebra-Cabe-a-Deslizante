@@ -13,21 +13,21 @@
       padding: 20px;
     }
 
-   
-
     h1 {
       color: #604ccf;
-  }
+    }
 
     p {
+      display: inline-block;
+      text-wrap: wrap;
       font-size: 18px;
       color: #43368a;
     }
 
-    #controle{
+    #controle {
+      display: inline-block;
       width: 10px;
       height: 10px;
-     
     }
 
     .quebra-container {
@@ -49,7 +49,7 @@
       overflow: hidden;
     }
 
-    #img i {
+    #img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -66,20 +66,28 @@
     .peca {
       width: 100px;
       height: 100px;
-      border: 2px solid #604ccf;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
+      border: 2px solid #8270ec;
+      background-image: url('https://picsum.photos/300/300');
+      background-size: 300px 300px;
+      background-repeat: no-repeat;
     }
-    .buttons-container{
+
+    #peca1 { background-position: 0px 0px; }
+    #peca2 { background-position: -100px 0px; }
+    #peca3 { background-position: -200px 0px; }
+    #peca4 { background-position: 0px -100px; }
+    #peca5 { background-position: -100px -100px; }
+    #peca6 { background-position: -200px -100px; }
+    #peca7 { background-position: 0px -200px; }
+    #peca8 { background-position: -100px -200px; }
+
+    .buttons-container {
       width: 100%;
+      margin-top: 20px;
     }
+
     button {
-      margin: 0 21px;
+      margin: 0 10px;
       padding: 10px 20px;
       font-size: 16px;
       font-weight: bold;
@@ -87,7 +95,7 @@
       border: 2px solid #8270ec;
       color: #43368a;
       background-color: white;
-      width:300px;
+      width: 300px;
     }
 
     button:hover {
@@ -98,31 +106,33 @@
 </head>
 <body>
   <header>
-  <h1>Quebra-Cabeça</h1>
-  <img id="controle" src="/controle.png" alt="Botões de controle" style="width: 300px; height: 300px; border-radius: 50%; margin-bottom: 20px;">
-  <p>Mova as peças para resolver o quebra-cabeça!</p>
-</header>
+    <h1>Quebra-Cabeça</h1>
+    <img id="controle" src="/controle.png" alt="Botões de controle" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px;">
+    <p>Mova as peças para resolver o quebra-cabeça!</p>
+  </header>
+
   <div class="quebra-container">
     <div class="container">
-      <div class="peca" id="1">1</div>
-      <div class="peca" id="2">2</div>
-      <div class="peca" id="3">3</div>
-      <div class="peca" id="4">4</div>
-      <div class="peca" id="5">5</div>
-      <div class="peca" id="6">6</div>
-      <div class="peca" id="7">7</div>
-      <div class="peca" id="8">8</div>
-      <div class="peca" id="9"></div> 
+      <div class="peca" id="peca1"></div>
+      <div class="peca" id="peca2"></div>
+      <div class="peca" id="peca3"></div>
+      <div class="peca" id="peca4"></div>
+      <div class="peca" id="peca5"></div>
+      <div class="peca" id="peca6"></div>
+      <div class="peca" id="peca7"></div>
+      <div class="peca" id="peca8"></div>
+      <div id="peca9" style="background-color: white;border: 2px solid #8270ec;width: 100px;
+      height: 100px;"></div>
     </div>
 
     <div id="img">
       <img src="https://picsum.photos/300/300" alt="Imagem aleatória">
     </div>
   </div>
-<div class="buttons-container">
-  <button id="reset">Reset</button>
-  <button id="mudaImagem">Mudar Imagem</button>
-</div>
 
+  <div class="buttons-container">
+    <button id="reset">Reset</button>
+    <button id="mudaImagem">Mudar Imagem</button>
+  </div>
 </body>
 </html>
