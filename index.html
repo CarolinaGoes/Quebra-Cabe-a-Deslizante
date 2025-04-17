@@ -22,6 +22,13 @@
       color: #43368a;
     }
 
+    #controle{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 0px;
+    }
+
     .quebra-container {
       display: flex;
       justify-content: center;
@@ -41,7 +48,7 @@
       overflow: hidden;
     }
 
-    #img img {
+    #img i {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -90,6 +97,7 @@
 </head>
 <body>
   <h1>Quebra-Cabeça</h1>
+  <img id="controle" src="/controle.png" alt="Botões de controle" style="width: 300px; height: 300px; border-radius: 50%; margin-bottom: 20px;">
   <p>Mova as peças para resolver o quebra-cabeça!</p>
 
   <div class="quebra-container">
