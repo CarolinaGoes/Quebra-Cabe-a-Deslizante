@@ -93,3 +93,21 @@ function embaralhar() {
 }
 
 embaralhar();
+
+function verificarGanho() {
+  let ganhou = true;
+
+  for (let linha = 0; linha < 3; linha++) {
+    for (let coluna = 0; coluna < 3; coluna++) {
+      if (grid[linha][coluna] !== document.getElementById(`peca${linha * 3 + coluna + 1}`)) {
+        ganhou = false;
+        break;
+      }
+    }
+    if (!ganhou) break;
+  }
+
+  if (ganhou) {
+    alert('Parabéns! Você ganhou!');
+  }
+}
