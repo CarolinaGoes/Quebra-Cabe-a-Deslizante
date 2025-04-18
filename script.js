@@ -47,17 +47,29 @@ botaoImagem.addEventListener('click', () => {
 
   document.addEventListener('keydown', (e) => {
     const { linha, coluna } = encontrarPosicaoVazia();
-
+    let moveFeito = false;
+  
     if (e.key === 'ArrowUp' && linha < 2) {
       trocarPecas(linha, coluna, linha + 1, coluna);
+      moveFeito = true;
     }
     else if (e.key === 'ArrowDown' && linha > 0) {
       trocarPecas(linha, coluna, linha - 1, coluna);
+      moveFeito = true;
     }
     else if (e.key === 'ArrowLeft' && coluna < 2) {
       trocarPecas(linha, coluna, linha, coluna + 1);
+      moveFeito = true;
     }
     else if (e.key === 'ArrowRight' && coluna > 0) {
       trocarPecas(linha, coluna, linha, coluna - 1);
+      moveFeito = true;
+    }
+  
+    if (moveFeito && verificarVitoria()) {
+      setTimeout(() => {
+        alert("🎉 Parabéns! Você montou a imagem corretamente! 🎉");
+      }, 100); 
     }
   });
+  
